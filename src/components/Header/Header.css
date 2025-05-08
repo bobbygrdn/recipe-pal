@@ -1,0 +1,89 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-light);
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+#app-logo {
+  height: 5rem;
+}
+
+#company-name {
+    font-size: 3rem;
+    margin: 0;
+}
+
+body.dark-mode .app-header {
+  background-color: var(--background-dark);
+}
+
+.theme-switch {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 1000;
+  justify-content: center;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.theme-switch label {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background: var(--primary-color);
+  border-radius: 20px;
+  transition: background 0.3s;
+  margin-right: 0.5rem;
+}
+
+.theme-switch label::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.theme-switch input:checked + label {
+  background: #e65a50;
+}
+
+.theme-switch input:checked + label::after {
+  transform: translateX(20px);
+}
+
+.theme-switch span {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  transition: color 0.3s;
+}
+
+body.dark-mode .theme-switch span {
+  color: var(--text-dark);
+}
+
+#theme-toggle {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+
+  #company-name {
+    font-size: 1.5rem;
+  }
+    
+  #app-logo {
+    height: 3rem;
+  }
+}
