@@ -1,12 +1,19 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 import Header from './components/Header/Header';
 import RecipeForm from './components/RecipeForm/RecipeForm';
+import LoadingScreen from './components/LoadingScreen/LoadingScreen';
 
 function App() {
   const [recipe, setRecipe] = useState({ title: '', ingredients: '', instructions: '' });
   const [darkMode, setDarkMode] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1200); // 1.2s splash
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -22,6 +29,8 @@ function App() {
     setDarkMode((prev) => !prev);
     document.body.classList.toggle('dark-mode', !darkMode);
   };
+
+  if (loading) return <LoadingScreen />;
 
   return (
     <main id='app'>
