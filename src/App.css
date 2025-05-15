@@ -16,6 +16,9 @@ body {
   transition: background-color 0.3s, color 0.3s;
   width: 100dvw;
   height: 100dvh;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: contain;
 }
 
 body.dark-mode {
@@ -37,4 +40,14 @@ body.dark-mode {
   height: 100%;
   gap: 1rem;
   align-items: center;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  box-shadow: 0 0 16px 0 rgba(0,0,0,0.08);
+  border-radius: 16px;
+  background: var(--background-light);
+}
+
+body.dark-mode #app {
+  background: var(--background-dark);
 }
