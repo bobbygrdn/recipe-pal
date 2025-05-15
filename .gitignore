@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local HTTPS certificates (do not commit to git)
+localhost.pem
+localhost-key.pem
